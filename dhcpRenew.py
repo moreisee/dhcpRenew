@@ -3,7 +3,6 @@ import os
 import sys
 import subprocess
 import time
-import sys
 import datetime
 
 
