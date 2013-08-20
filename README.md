@@ -6,5 +6,6 @@ I've been running into an issue while on Mac OS X 10.8 where I constantly have t
 Usage
 -----
 
-Run the script in terminal using:
+1. Run the script in terminal using:
 ``` python dhcpRenew.py ```
+2. Leave the terminal window open or use Screen/tmux/bg to run in background
