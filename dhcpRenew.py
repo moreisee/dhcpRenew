@@ -15,28 +15,28 @@ if os.geteuid() != 0:
 
 
 def renew_dhcp():
-	""" Main script to renew DHCP
-	"""
-	try:
-		renew_time = int(raw_input("please enter a time in minutes to rewnew dhcp (example: 10): "))
-	except ValueError:
-		print("That was not a number, please try again (example: 10): ")
-		renew_dhcp()
+    """ Main script to renew DHCP
+    """
+    try:
+        renew_time = int(raw_input("please enter a time in minutes to rewnew dhcp (example: 10): "))
+    except ValueError:
+        print("That was not a number, please try again (example: 10): ")
+        renew_dhcp()
 
-	renew_time = renew_time * 60
+    renew_time = renew_time * 60
 
-	while True:
-		for i in range(renew_time):
+    while True:
+        for i in range(renew_time):
 
-			time.sleep(1)
+            time.sleep(1)
 
-			time_left = str(datetime.timedelta(seconds=renew_time - i))
+            time_left = str(datetime.timedelta(seconds=renew_time - i))
 
-			sys.stdout.write("\r{0} until next DHCP renewal. ".format(time_left)) 
-			sys.stdout.flush()
+            sys.stdout.write("\r{0} until next DHCP renewal. ".format(time_left)) 
+            sys.stdout.flush()
 
-		subprocess.call("ipconfig set en1 BOOTP", shell=True)
-		subprocess.call("ipconfig set en1 DHCP", shell=True)
+        subprocess.call("ipconfig set en1 BOOTP", shell=True)
+        subprocess.call("ipconfig set en1 DHCP", shell=True)
 
 if __name__ == "__main__":
-	renew_dhcp()
+    renew_dhcp()
