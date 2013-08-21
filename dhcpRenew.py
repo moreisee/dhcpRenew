@@ -25,17 +25,17 @@ def renew_dhcp():
     renew_time = renew_time * 60
 
     while True:
+        subprocess.call("ipconfig set en1 BOOTP", shell=True)
+        subprocess.call("ipconfig set en1 DHCP", shell=True)
+
         for i in range(renew_time):
 
-            time.sleep(1)
-
+            time.sleep(5)
             time_left = str(datetime.timedelta(seconds=renew_time - i))
 
             sys.stdout.write("\r{0} until next DHCP renewal. ".format(time_left)) 
             sys.stdout.flush()
 
-        subprocess.call("ipconfig set en1 BOOTP", shell=True)
-        subprocess.call("ipconfig set en1 DHCP", shell=True)
 
 if __name__ == "__main__":
     renew_dhcp()
