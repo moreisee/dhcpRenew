@@ -30,7 +30,7 @@ def renew_dhcp():
 
         for i in range(renew_time):
 
-            time.sleep(5)
+            time.sleep(1)
             time_left = str(datetime.timedelta(seconds=renew_time - i))
 
             sys.stdout.write("\r{0} until next DHCP renewal. ".format(time_left)) 
