@@ -17,7 +17,7 @@ def renew_dhcp():
     """ Main script to renew DHCP
     """
     try:
-        renew_time = int(raw_input("please enter a time in minutes to rewnew dhcp (example: 10): "))
+        renew_time = int(raw_input("Please enter a time in minutes to rewnew dhcp (example: 10): "))
     except ValueError:
         print("That was not a number, please try again (example: 10): ")
         renew_dhcp()
